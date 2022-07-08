@@ -6,10 +6,23 @@ import com.edu.InventoryManagementSystems.entity.Customer;
 
 public interface CustomerService {
 
-	boolean saveUpdateCustomer(Customer request);
+	Customer saveCustomer(Customer customer);
 
-	List<Customer> fetchAllCustomer();
+	List<Customer> getCustomerList();
 
-	List<Customer> findCustomerByMobileNumber(String mobileNumber);
+	Customer getCustomerById(long id);
 
+	Customer updateCustomer(long id, Customer customer);
+
+	String deleteCustomer(long id);
+
+	List<Customer> getCustomerByFirstName(String firstName);
+
+	List<Customer> getCustomerByLastName(String lastName);
+
+	List<Customer> getCustomerByFullName(String firstName, String lastName);
+
+	Customer getCustomerByEmail(String email);
+
+	Customer getCustomerByContactNo(String contactNo);
 }

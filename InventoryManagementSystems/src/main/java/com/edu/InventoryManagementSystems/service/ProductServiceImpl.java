@@ -1,48 +1,59 @@
 package com.edu.InventoryManagementSystems.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import com.edu.InventoryManagementSystems.entity.Product;
+import com.edu.InventoryManagementSystems.exception.ResourceNotFoundException;
+import com.edu.InventoryManagementSystems.repository.ProductRepository;
 import org.springframework.stereotype.Service;
 
-import com.edu.InventoryManagementSystems.entity.Product;
-import com.edu.InventoryManagementSystems.repository.ProductRepository;
+import java.util.List;
 
 @Service
-public class ProductServiceImpl  implements ProductService   {
-    @Autowired
-    private ProductRepository repository;
+public class ProductServiceImpl implements ProductService {
+    ProductRepository productRepository;
 
+    public ProductServiceImpl(ProductRepository productRepository) {
+        super();
+        this.productRepository = productRepository;
+    }
+    @Override
     public Product saveProduct(Product product) {
-        return repository.save(product);
+        // TODO Auto-generated method stub
+        return productRepository.save(product);
+    }
+    @Override
+    public List<Product> getProductList() {
+        // TODO Auto-generated method stub
+        return productRepository.findAll();
     }
 
-    public List<Product> saveProducts(List<Product> products) {
-        return repository.saveAll(products);
+    @Override
+    public Product getProductById(long id) { //101
+        Product product = new Product();
+        product = productRepository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Product","id",id));
+        return product;
     }
-
-    public List<Product> getProducts() {
-        return repository.findAll();
+    @Override
+    public Product updateProduct(long id, Product product) { //id=101
+        Product prod = new Product();
+        prod = productRepository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Customer","id",id));
+        prod.setProductName(product.getProductName());
+        prod.setPrice(product.getPrice());
+        prod.setQuantity(product.getQuantity());
+        productRepository.save(prod);
+        return prod;
     }
-
-    public Product getProductById(int id) {
-        return repository.findById(id).orElse(null);
+    @Override
+    public String deleteProduct(long id) {
+        Product product = new Product();
+        product = productRepository.findById(id).orElseThrow(
+                ()->new ResourceNotFoundException("Product","id",id));
+        productRepository.deleteById(id);
+        return "Record is deleted successfully";
     }
-
-    public Product getProductByName(String name) {
-        return repository.findByName(name);
-    }
-
-    public String deleteProduct(int id) {
-        repository.deleteById(id);
-        return "product removed !! " + id;
-    }
-
-    public Product updateProduct(Product product) {
-        Product existingProduct = repository.findById(product.getId()).orElse(null);
-        existingProduct.setName(product.getName());
-        existingProduct.setQuantity(product.getQuantity());
-        existingProduct.setPrice(product.getPrice());
-        return repository.save(existingProduct);
+    @Override
+    public List<Product> getProductByName(String productName) {
+        return productRepository.getProductByName(productName) ;
     }
 }

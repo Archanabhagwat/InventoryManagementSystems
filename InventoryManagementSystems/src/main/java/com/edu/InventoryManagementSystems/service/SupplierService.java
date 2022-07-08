@@ -1,27 +1,22 @@
 package com.edu.InventoryManagementSystems.service;
 
+import com.edu.InventoryManagementSystems.entity.Supplier;
 import java.util.List;
 
-import com.edu.InventoryManagementSystems.entity.Supplier;
-
 public interface SupplierService {
+    Supplier saveSupplier(Supplier supplier);
 
-	List<Supplier> getSupplierList();
+    List<Supplier> getSupplierList();
 
-	Supplier saveSupplier(Supplier supplier);
+    Supplier getSupplierById(long id);
 
-	Supplier getSupplierById(long id);
+    Supplier updateSupplier(long id, Supplier supplier);
 
-	Supplier updateSupplier(long id, Supplier supplier);
+    String deleteSupplier(long id);
 
-	String deleteSupplier(long id);
+    List<Supplier> getSupplierByName(String supplierName);
 
-	List<Supplier> getSupplierByName(String name);
+    Supplier getSupplierByEmail(String email);
 
-	boolean saveUpdateSupplier(Supplier request);
-
-	List<Supplier> fetchAllSupplier();
-
-	List<Supplier> findSupplierByNumber(String Number);
-
+    Supplier getSupplierByContactNo(String contactNo);
 }
