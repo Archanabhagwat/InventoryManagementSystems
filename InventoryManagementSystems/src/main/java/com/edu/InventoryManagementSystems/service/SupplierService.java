@@ -5,7 +5,7 @@ import java.util.List;
 
 public interface SupplierService {
     Supplier saveSupplier(Supplier supplier);
-
+ 
     List<Supplier> getSupplierList();
 
     Supplier getSupplierById(long id);

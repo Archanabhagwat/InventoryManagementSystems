@@ -1,5 +1,5 @@
 package com.edu.InventoryManagementSystems.entity;
-
+ 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

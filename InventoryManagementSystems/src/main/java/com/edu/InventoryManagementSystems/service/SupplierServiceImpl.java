@@ -6,7 +6,7 @@ import com.edu.InventoryManagementSystems.repository.SupplierRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+ 
 @Service
 public class SupplierServiceImpl implements SupplierService {
     SupplierRepository supplierRepository;

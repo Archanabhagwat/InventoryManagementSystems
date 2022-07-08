@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.edu.InventoryManagementSystems.entity.Customer;
 
-@Repository
+@Repository 
 public interface CustomerRepository extends JpaRepository<Customer,Long>{
 	
 	@Query(value = "select * from customer_tbl c where c.first_name= :firstName", nativeQuery = true)

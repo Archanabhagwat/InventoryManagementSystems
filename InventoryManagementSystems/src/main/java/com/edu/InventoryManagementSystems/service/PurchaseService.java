@@ -5,7 +5,7 @@ import com.edu.InventoryManagementSystems.entity.Purchase;
 import java.util.Date;
 import java.util.List;
 
-
+ 
 
 public interface PurchaseService {
 

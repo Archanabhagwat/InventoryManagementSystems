@@ -5,7 +5,7 @@ import com.edu.InventoryManagementSystems.entity.Product;
 import java.util.List;
 
 public interface ProductService {
-
+ 
     Product saveProduct(Product product);
 
     List<Product> getProductList();

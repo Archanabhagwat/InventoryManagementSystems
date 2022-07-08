@@ -10,7 +10,7 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import com.edu.InventoryManagementSystems.entity.Purchase;
-
+ 
 @DataJpaTest
 @AutoConfigureTestDatabase(replace= Replace.NONE)
 public class PurchaseRepositoryTest {

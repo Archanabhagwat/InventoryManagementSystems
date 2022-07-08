@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity(name="purchaseTbl")
 public class Purchase  {
      
-	@Id
+	@Id 
 	@GeneratedValue(generator="seq", strategy=GenerationType.AUTO)
 	@SequenceGenerator(name= "seq", initialValue=101)
 	private long id;

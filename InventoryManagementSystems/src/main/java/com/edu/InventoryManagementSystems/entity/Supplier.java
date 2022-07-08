@@ -6,7 +6,7 @@ import org.hibernate.annotations.LazyCollectionOption;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name="supplierTbl")
+@Entity(name="supplierTbl") 
 public class Supplier {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
